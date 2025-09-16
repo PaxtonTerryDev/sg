@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cf4j2wqv8pjcg"]
+
+[ext_resource type="PackedScene" uid="uid://dkcpe7wc2er7w" path="res://network/examples/network_example_ui.tscn" id="1_nmk4n"]
+[ext_resource type="Script" uid="uid://odnmbyeuqng2" path="res://network/examples/multiplayer_player_spawner.gd" id="2_doos3"]
+[ext_resource type="PackedScene" uid="uid://d2c6yxx418ixg" path="res://network/examples/network_player.tscn" id="3_doos3"]
+
+[node name="NetworkExample" type="Node2D"]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://d2c6yxx418ixg")
+spawn_path = NodePath("..")
+script = ExtResource("2_doos3")
+network_player = ExtResource("3_doos3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NetworkExampleUI" parent="CanvasLayer" instance=ExtResource("1_nmk4n")]
